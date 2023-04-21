@@ -1,0 +1,45 @@
+<form>
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome:</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="nome" 
+        aria-describedby="Nome do Usuário"
+        [(ngModel)]="nome"
+        name="nome"
+      >
+    </div>
+    <div class="mb-3">
+        <label for="nome" class="form-label">E-Mail:</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="email" 
+          aria-describedby="E-Mail do usuário"
+          [(ngModel)]="email"
+          name="email"
+        >
+    </div>  
+    <div class="mb-3">
+        <label for="senha" class="form-label">Senha:</label>
+        <input 
+          type="password" 
+          class="form-control" 
+          id="senha" 
+          aria-describedby="Senha do usuário"
+          [(ngModel)]="senha"
+          name="senha"
+        >
+    </div>
+    <button 
+      type="button" 
+      class="btn btn-primary"
+      (click)="salvar()"
+    >Salvar</button>
+    <button 
+      type="button" 
+      class="btn btn-danger"
+      (click)="limpar()"
+    >Limpar</button>
+</form>

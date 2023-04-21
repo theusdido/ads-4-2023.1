@@ -1,10 +1,26 @@
 <form>
     <div class="mb-3">
       <label for="nome" class="form-label">Nome:</label>
-      <input type="text" class="form-control" id="nome" aria-describedby="Nome da Cidade">
+      <input 
+        type="text" 
+        class="form-control" 
+        id="nome" 
+        aria-describedby="Nome da Cidade"
+        [(ngModel)]="nome"
+        name="nome"
+      >
     </div>
     <div class="mb-3">
         <app-lista-estado></app-lista-estado>
     </div>
-    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button 
+      type="button" 
+      class="btn btn-primary"
+      (click)="salvar()"
+    >Salvar</button>
+    <button 
+      type="button" 
+      class="btn btn-danger"
+      (click)="limpar()"
+    >Limpar</button>
 </form>

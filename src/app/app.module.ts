@@ -7,6 +7,10 @@ import { ListaEstadoComponent } from './lista-estado/lista-estado.component';
 import { LayoutComponent } from './layout/layout.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { LogonComponent } from './logon/logon.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +19,14 @@ import { HomeComponent } from './home/home.component';
     ListaEstadoComponent,
     LayoutComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    CadastroUsuarioComponent,
+    LogonComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
