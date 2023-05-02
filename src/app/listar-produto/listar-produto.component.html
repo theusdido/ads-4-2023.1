@@ -1,0 +1,30 @@
+<button class="btn btn-primary">
+  Novo
+</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produto_service.produtos;let i = index">
+        <th scope="row"> - </th>
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.valor }}</td>
+        <td>
+            <fa-icon [icon]="faEdit"></fa-icon>
+        </td>
+        <td>
+            <fa-icon 
+              [icon]="faTrash" 
+              (click)="produto_service.excluir(i)"
+            ></fa-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>

@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { LogonComponent } from './logon/logon.component';
+import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
+import { ListarProdutoComponent } from './listar-produto/listar-produto.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,15 @@ import { LogonComponent } from './logon/logon.component';
     MenuComponent,
     HomeComponent,
     CadastroUsuarioComponent,
-    LogonComponent
+    LogonComponent,
+    CadastroProdutoComponent,
+    ListarProdutoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
