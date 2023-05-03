@@ -8,9 +8,9 @@ export class ProdutoService {
   public produtos:Array<Produto> = [];
   constructor() { }
 
-  carregar(){
+  carregar(indice:number){
     this.produtos = JSON.parse(String(localStorage.getItem('produto')));
-    console.log(this.produtos);
+    return this.produtos[indice];
   }
 
   excluir(indice:number){
@@ -20,5 +20,10 @@ export class ProdutoService {
 
   salvar(){
     localStorage.setItem('produto',JSON.stringify(this.produtos));
+  }
+
+  update(indice:number,produto:Produto){
+    this.produtos[indice] = produto;
+    this.salvar();
   }
 }

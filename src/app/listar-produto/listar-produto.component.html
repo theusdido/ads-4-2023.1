@@ -1,4 +1,4 @@
-<button class="btn btn-primary">
+<button class="btn btn-primary" routerLink="/produto/-1">
   Novo
 </button>
 <table class="table">
@@ -17,7 +17,10 @@
         <td>{{ produto.nome }}</td>
         <td>{{ produto.valor }}</td>
         <td>
-            <fa-icon [icon]="faEdit"></fa-icon>
+            <fa-icon 
+              [icon]="faEdit"
+              (click)="editar(i)"
+            ></fa-icon>
         </td>
         <td>
             <fa-icon 

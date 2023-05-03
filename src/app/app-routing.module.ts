@@ -13,13 +13,8 @@ const routes: Routes = [
   { path: 'cidade', component: CadastroCidadeComponent },
   { path:'usuario', component:CadastroUsuarioComponent},
   { path:'logon', component:LogonComponent},
-  { 
-    path:'produto', 
-    component:ListarProdutoComponent,
-    children:[
-    
-    ]
-  }
+  { path:'produto', component:ListarProdutoComponent},
+  { path:'produto/:indice', component:CadastroProdutoComponent}
 ];
 
 @NgModule({  
