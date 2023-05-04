@@ -18,7 +18,7 @@ export class ListarProdutoComponent implements OnInit{
     public router:Router
   ){}
   ngOnInit(): void {
-    //this.produto_service.carregar();
+    this.produto_service.carregar();
   }
 
   editar(indice:number){

@@ -26,10 +26,13 @@ export class CadastroProdutoComponent implements OnInit{
   ngOnInit(): void {
     this.actived_route.params
     .subscribe((params:any) => {
-      this.indice = params.indice;
-      let produto = this.produto_service.carregar(params.indice);
-      this.nome   = produto.nome;
-      this.valor  = produto.valor;
+      // -1 significa que é um novo registro
+      if (params.indice > -1){
+        this.indice = params.indice;
+        let produto = this.produto_service.registro(this.indice);
+        this.nome   = produto.nome;
+        this.valor  = produto.valor;
+      }
     });
     
   }
@@ -39,12 +42,13 @@ export class CadastroProdutoComponent implements OnInit{
       valor:this.valor
     }
 
-    if (this.indice > 0){
+    if (this.indice > -1){
       this.produto_service.update(this.indice,produto);
     }else{
-      //this.produtos.push(produto);
-      //localStorage.setItem('produto',JSON.stringify(this.produtos));
+      this.produtos.push(produto);
+      localStorage.setItem('produto',JSON.stringify(this.produtos));
     }
+    this.limpar();
   }
 
   limpar(){
