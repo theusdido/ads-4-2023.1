@@ -15,7 +15,6 @@ export interface Produto{
 export class CadastroProdutoComponent implements OnInit{
   public nome:string = '';
   public valor:number = 0;
-  public produtos:Array<Produto> = [];
   public indice:number = -1;
 
   constructor(
@@ -45,8 +44,8 @@ export class CadastroProdutoComponent implements OnInit{
     if (this.indice > -1){
       this.produto_service.update(this.indice,produto);
     }else{
-      this.produtos.push(produto);
-      localStorage.setItem('produto',JSON.stringify(this.produtos));
+      this.produto_service.produtos.push(produto);
+      this.produto_service.salvar();
     }
     this.limpar();
   }
