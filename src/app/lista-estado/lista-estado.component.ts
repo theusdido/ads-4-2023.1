@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-lista-estado',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./lista-estado.component.css']
 })
 export class ListaEstadoComponent {
+  public estado:string = 'SC';
+  public emitir_estado = new EventEmitter();
 
+  getEstado():string{
+    this.emitir_estado.emit();
+    return this.estado;
+  }
 }
