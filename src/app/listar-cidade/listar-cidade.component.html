@@ -1,0 +1,33 @@
+<button class="btn btn-primary" routerLink="/cidade/-1">
+    Novo
+  </button>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cidade of cidade_service.cidades;let i = index">
+          <th scope="row"> - </th>
+          <td>{{ cidade.nome }}</td>
+          <td>{{ cidade.estado }}</td>
+          <td>
+              <fa-icon 
+                [icon]="faEdit"
+                (click)="editar(i)"
+              ></fa-icon>
+          </td>
+          <td>
+              <fa-icon 
+                [icon]="faTrash" 
+                (click)="cidade_service.excluir(i)"
+              ></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>

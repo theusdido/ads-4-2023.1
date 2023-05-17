@@ -1,4 +1,7 @@
 import { AfterViewInit, Component,OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CidadeService } from '../service/cidade.service';
+import { Cidade } from '../interface/cidade';
 
 @Component({
   selector: 'app-cadastro-cidade',
@@ -7,33 +10,59 @@ import { AfterViewInit, Component,OnInit, ViewChild, ViewChildren } from '@angul
 })
 export class CadastroCidadeComponent implements OnInit,AfterViewInit {
 
+  public indice:number = -1;
   public nome:string = '';
   public estado:string = '';
   @ViewChild('lista_estado_component') lista_estado:any;
   
+  constructor(
+    public activated_route:ActivatedRoute,
+    public cidade_service:CidadeService
+  ){}
+
   ngOnInit(): void {
-    this.carregar();      
+    this.activated_route.params
+    .subscribe((params:any) => {
+      // -1 significa que é um novo registro
+      if (params.indice > -1){
+        this.indice   = params.indice;
+        let cidade    = this.cidade_service.registro(this.indice);
+        this.nome     = cidade.nome;
+        this.estado   = cidade.estado;        
+      }
+    });
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.lista_estado.setEstado('PR');
+      if (this.indice < 0){
+        this.setEstadoPadrao();
+      }else{
+        this.lista_estado.setEstado(this.estado);
+      }
     });
   }
 
-
   salvar(){
-    console.log( this.lista_estado.getEstado() );
-    localStorage.setItem('nome',this.nome);
-    //localStorage.setItem('estado',this.estado);
-  }
+    let cidade:Cidade = {
+      nome:this.nome,
+      estado:this.lista_estado.getEstado()
+    }
+
+    if (this.indice > -1){
+      this.cidade_service.update(this.indice,cidade);
+    }else{
+      this.cidade_service.cidades.push(cidade);
+      this.cidade_service.salvar();
+    }
+    this.limpar();  }
 
   limpar(){
     this.nome = '';
-    localStorage.clear();
+    this.setEstadoPadrao();
   }
 
-  carregar(){
-    this.nome = String(localStorage.getItem('nome'));
+  setEstadoPadrao(){
+    this.lista_estado.setEstado('SC');
   }
 }

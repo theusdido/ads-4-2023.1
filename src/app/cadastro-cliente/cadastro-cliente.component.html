@@ -1,1 +1,33 @@
-<p>cadastro-cliente works!</p>
+<form>
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome:</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="nome" 
+        aria-describedby="Nome da Cidade"
+        name="nome"
+      >
+    </div>
+    <div class="mb-3">
+        <label for="cpf" class="form-label">CPF:</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="cpf" 
+          aria-describedby="CPF"
+          name="cpf"
+        >
+      </div>    
+    <div class="mb-3">
+        <app-lista-cidade #lista_cidade_component></app-lista-cidade>
+    </div>
+    <button 
+      type="button" 
+      class="btn btn-primary"
+    >Salvar</button>
+    <button 
+      type="button" 
+      class="btn btn-danger"
+    >Limpar</button>
+</form>

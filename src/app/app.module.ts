@@ -15,6 +15,8 @@ import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.co
 import { ListarProdutoComponent } from './listar-produto/listar-produto.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
+import { ListarCidadeComponent } from './listar-cidade/listar-cidade.component';
+import { ListaCidadeComponent } from './lista-cidade/lista-cidade.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.co
     LogonComponent,
     CadastroProdutoComponent,
     ListarProdutoComponent,
-    CadastroClienteComponent
+    CadastroClienteComponent,
+    ListarCidadeComponent,
+    ListaCidadeComponent
   ],
   imports: [
     BrowserModule,
