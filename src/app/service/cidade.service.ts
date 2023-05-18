@@ -30,5 +30,5 @@ export class CidadeService {
   registro(indice:number){
     this.cidades = this.carregar();
     return this.cidades[indice];
-  }    
+  }
 }

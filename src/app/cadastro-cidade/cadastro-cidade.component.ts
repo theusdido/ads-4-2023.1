@@ -55,7 +55,8 @@ export class CadastroCidadeComponent implements OnInit,AfterViewInit {
       this.cidade_service.cidades.push(cidade);
       this.cidade_service.salvar();
     }
-    this.limpar();  }
+    this.limpar();  
+  }
 
   limpar(){
     this.nome = '';
