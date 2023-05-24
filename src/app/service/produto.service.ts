@@ -27,8 +27,13 @@ export class ProdutoService {
     this.salvar();
   }
 
-  registro(indice:number){
-    this.produtos = this.carregar();
-    return this.produtos[indice];
+  registro(indice:number):any{
+    let _produto:any;
+    try{
+      this.produtos = this.carregar();
+      return this.produtos[indice];
+    }catch(e){
+      return _produto;
+    }
   }  
 }

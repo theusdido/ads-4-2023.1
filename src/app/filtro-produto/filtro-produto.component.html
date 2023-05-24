@@ -1,0 +1,21 @@
+<div class="input-group mb-3">
+    <input 
+        type="text" 
+        class="form-control" 
+        aria-describedby="id"
+        (blur)="carregar()"
+        [(ngModel)]="codigo_produto"
+    />
+    <input 
+        type="text" 
+        class="form-control"  
+        aria-describedby="descrição" 
+        disabled
+        [(ngModel)]="nome_produto"        
+    />
+    <button class="btn btn-outline-secondary" type="button" id="pesquisar">
+        <fa-icon 
+            [icon]="faSearch"
+      ></fa-icon>
+    </button>
+  </div>

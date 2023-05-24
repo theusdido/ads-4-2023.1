@@ -8,6 +8,7 @@ import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.co
 import { ListarProdutoComponent } from './listar-produto/listar-produto.component';
 import { ListarCidadeComponent } from './listar-cidade/listar-cidade.component';
 import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
+import { VendaComponent } from './venda/venda.component';
 
 const routes: Routes = [
   { path:'', component:HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path:'produto', component:ListarProdutoComponent},
   { path:'produto/:indice', component:CadastroProdutoComponent},
   { path:'cidade/:indice', component:CadastroCidadeComponent},
-  { path: 'cliente' , component:CadastroClienteComponent}
+  { path:'cliente' , component:CadastroClienteComponent},
+  { path:'venda' , component:VendaComponent }
 ];
 
 @NgModule({  
