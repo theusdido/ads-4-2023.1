@@ -13,9 +13,53 @@
         disabled
         [(ngModel)]="nome_produto"        
     />
-    <button class="btn btn-outline-secondary" type="button" id="pesquisar">
+    <button 
+        class="btn btn-outline-secondary" 
+        type="button" 
+        id="pesquisar"
+        data-bs-toggle="modal" 
+        data-bs-target="#lista-pesquisa-produto"
+    >
         <fa-icon 
             [icon]="faSearch"
       ></fa-icon>
     </button>
-  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="lista-pesquisa-produto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr 
+                    *ngFor="let produto of produto_service.produtos;let i = index"
+                    (click)="setProduto(i)"
+                    class="cursor-lista-filtro"
+                    >
+                    <th scope="row"> - </th>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.valor }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+        </div>
+      </div>
+    </div>
+</div>
